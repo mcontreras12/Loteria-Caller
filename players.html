@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria - Players</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- header -->
+     <header>
+        <h1>Loteria</h1>
+
+        <!-- header naviagion for every page-->
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+     </header>
+
+     <!-- main content for players page-->
+      <main>
+        <!-- heading for players page-->
+         <section id="players-header">
+            <h2>Players</h2>
+            <p>Add players and track winnings</p>
+         </section>
+
+         <!-- player section to add players and such-->
+          <section id="add-player">
+            <h2>Add Player</h2>
+
+            <!-- form to add players-->
+            <form id="add-player-form">
+                <label for="player-name">Player Name</label>
+                <input type="text" id="player-name" name="player-name" placeholder="Enter player name" required>
+
+                <button type="submit">Add Player</button>
+            </form>
+          </section>
+
+          <!-- display list of current players-->
+           <section id="players-section">
+            <h2>Current Players</h2>
+            
+            <!-- display player stats for that game session-->
+             <table id="players-table">
+                <thead>
+                    <tr>
+                        <th scope="col">Player</th>
+                        <th scope="col">Total Won</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="players-table-body">
+                    <!-- players will be added here with javascript later on-->
+                </tbody>
+             </table>
+           </section>
+
+           <!-- money for the rounds/ contributions by player-->
+            <section id="round-contributions">
+                <h2>Round Contributions</h2>
+                <p>Set the amount that each player contributes for each round.</p>
+
+                <!-- form for the players contribution-->
+                 <form id="contribution-form">
+                    <label for="contribution-amount">Contribution Amount ($)</label>
+
+                    <input type="number" id="contribution-amount" name="contribution-amount" min="0" step="0.25" placeholder="0.00" required>
+
+                    <button type="submit">Set Contribution</button>
+                 </form>
+
+                 <!-- display how much is in the pot per round-->
+                  <p>Total Round Pot: $<span id="round-pot">0.00</span></p>
+            </section>
+
+            <!-- player summary per round-->
+             <section id="player-summary">
+                <h2>Player Summary</h2>
+
+                <p>Total Players: <span id="total-players">0</span></p>
+                <p>Total Winnings: $<span id="total-winnings">0.00</span></p>
+             </section>
+
+             <!-- game navigation section within players page-->
+              <section id="player-actions">
+                <h2>Play Game</h2>
+
+                <a href="game.html">Start Game</a>
+                <a href="index.html">Back to Home</a>
+              </section>
+
+      </main>
+
+      <footer>
+        <nav aria-label="footer-navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+      </footer>
+    
+</body>
+</html>
