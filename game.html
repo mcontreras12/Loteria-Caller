@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria - Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- header that is displayed on every page-->
+     <header>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main content for games page-->
+     <main>
+        <!-- game screen that will be displayed while round is being played-->
+         <section id="active-game">
+            <h2>Game Caller</h2>
+            <div class="game-content">
+                <!-- displays current card-->
+                 <section id="card-display">
+                    <h3>Current Card</h3>
+
+                    <!-- images to be added later for the cards to be displayed-->
+                    <figure>
+                        <img src="" alt="" id="current-card-image">
+                        <figcaption id="current-card-name">Ready to Play</figcaption>
+                    </figure>
+                 </section>
+
+                 <!-- controls for the cards being called-->
+                  <section id="caller-controls">
+                    <h3>Card Controls</h3>
+
+                    <!-- current card being displayed-->
+                     <p>Current Card: <span id="called-card-name">None</span></p>
+
+                     <!-- hopefully audio that will call the card-->
+                      <button type="button" id="play-audio">Play Card Audio</button>
+
+                    <!-- next card button-->
+                     <button type="button" id="next-card">Next Card</button>
+
+                     <!-- settings for the card to be called automatically wihtout the user having to prompt it-->
+                      <fieldset>
+                        <legend>Automatic Calling</legend>
+                        <label>
+                            <input type="radio" name="auto-call" value="on">
+                            On
+                        </label>
+                        <label>
+                            <input type="radio" name="auto-call" value="off" checked>
+                            Off
+                        </label>
+                      </fieldset>
+
+                      <!-- calling speed-->
+                       <fieldset>
+                        <legend>Calling Speed</legend>
+                        <label>
+                            <input type="radio" name="game-speed" value="slow">
+                            Slow
+                        </label>
+                        <label>
+                            <input type="radio" name="game-speed" value="medium">
+                            Medium
+                        </label>
+                        <label>
+                            <input type="radio" name="game-speed" value="fast">
+                            Fast
+                        </label>
+                       </fieldset>
+                  </section>
+
+                  <!-- display previous called on screen so that users can still see it-->
+                <section id="previous card">
+
+                    <h3>Previous Card</h3>
+
+                    <figure>
+                        <img src="" alt="" id="previous-card-image">
+                        <figcaption id="previous-card-name">None</figcaption>
+                    </figure>
+                </section>
+            </div>
+
+            <!-- information on current round/game-->
+            <section id="game-information">
+                <h3>Game Progress</h3>
+
+                <p>Deck Progress: <span id="cards-called">0</span> / <span id="total-cards">54</span>Cards</p>
+
+                <p>Time Elapsed: <span id="game-timer">00:00</span></p>
+            </section>
+
+
+         </section>
+     </main>
+    
+</body>
+</html>
