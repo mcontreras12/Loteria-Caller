@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body>
+
+    <header>
+        <h1>Loteria Caller</h1>
+
+        <!-- navigation menu with all the pages-->
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="game.html"></a></li>
+                <li><a href="settings.html"></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main -->
+     <main>
+
+        <!-- hero section on top of page-->
+         <section id="hero">
+            <div class="hero-content">
+                <div class="hero-buttons">
+                    <a href="game.html" id="start-game">Start Game</a>
+                    <a href="players.html">Manage Players</a>
+                    <button type="button" id="choose-deck"> Choose Deck</button>
+                </div>
+
+                <div class="hero-images">
+                    <!-- possible images of loteria decks will go here for user to pick a deck. unsure if will stay-->
+                </div>
+
+            </div>
+         </section>
+
+         <!-- game setup-->
+          <section id="game-setup">
+            <h2>Game Setup</h2>
+
+            <div class="setup-content">
+
+                <!-- allow for player previews -->
+                 <section id="players-previews">
+                    <h3>Players</h3>
+
+                    <ul id="home-player-list">
+                        <!-- player list will be displayed here with js -->
+                    </ul>
+
+                    <a href="players.html">Add Player</a>
+                 </section>
+
+                 <!-- quick settings shown in home page bfore game starts -->
+                  <section id="quick-settings">
+                    <h3>Settings</h3>
+
+                    <form id="quick-settings-form">
+                        <!-- input the options for the quick settings for quiclk start-->
+
+                        <!--card speed-->
+                        <!-- to later be changed to make it customizable-->
+                        <fieldset>
+                            <legend>Card Speed</legend>
+
+                            <label type="radio" name="speed" value="slow">Slow</label>
+                            <label type="radio" name="speed" value="medium">Medium</label>
+                            <label type="radio" name="speed" value="fast">Fast</label>
+                        </fieldset>
+
+                        <!-- language selection-->
+                        <!-- hopefully have spanish and english/ to be added later-->
+                        <label for="home-language">Language</label>
+                        <select name="language" id="home-language">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                        </select>
+
+                        <!-- user to select style of deck they want-->
+                         <label for="home-deck">Deck Style</label>
+                         <select name="deck" id="home-deck">
+                            <option value="classic">Classic</option>
+                         </select>
+
+                         <button type="submit">Save Settings</button>
+                         
+                    </form>
+                  </section>
+
+            </div>
+          </section>
+
+     </main>
+
+     <footer>
+
+        <nav aria-label="footer-navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+        </nav>
+     </footer>
+    
+</body>
+</html>
