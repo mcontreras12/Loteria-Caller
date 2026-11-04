@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loteria - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    
+    <!-- header that is displayed for every page-->
+    <header>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html" aria-current="page">Home</a></li>
+                <li><a href="players.html">Players</a></li>
+                <li><a href="game.html">Game</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main content for settings page-->
+    <main>
+
+        <section id="settings-page">
+
+            <h2>Settings</h2>
+
+            <!-- display how the settings will bevdisplayed-->
+            <div class="settings-layout">
+
+                <nav id="settings-sidebar" aria-label="Settings navigation">
+                    <ul>
+                        <li><a href="#game-settings">Game Settings</a></li>
+                        <li><a href="#voice-settings">Voice/Audio</a></li>
+                        <li><a href="#language-settings">Language</a></li>
+                        <li><a href="#deck-settings">Deck Options</a></li>
+                    </ul>
+                </nav>
+
+                <!-- form for settings to be displayed-->
+                <form id="settings-form">
+                    <section id="game-settings">
+                        <h3>Game Settings</h3>
+
+                        <!-- calling speed settings-->
+                        <fieldset>
+                            <legend>Calling Speed</legend>
+
+                            <label>
+                                <input type="radio" name="call-speed" value="slow">
+                                Slow
+                            </label>
+                            <label>
+                                <input type="radio" name="call-speed" value="medium">
+                                Medium
+                            </label>
+                            <label>
+                                <input type="radio" name="call-speed" value="fast">
+                                Fast
+                            </label>
+                        </fieldset>
+
+                        <!-- automatic calling settings-->
+                        <fieldset>
+                            
+                        </fieldset>
+                    </section>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+
+</body>
+</html>
