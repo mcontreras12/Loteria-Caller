@@ -101,11 +101,97 @@
                 <p>Deck Progress: <span id="cards-called">0</span> / <span id="total-cards">54</span>Cards</p>
 
                 <p>Time Elapsed: <span id="game-timer">00:00</span></p>
+
+                <p>Players: <span id="game-player-count">0</span></p>
             </section>
 
+            <!-- winner is declared when user prompts-->
+             <section id="winner-controls">
+                <h3>Round Winner</h3>
+
+                <button type="button" id="declare-winner">Declare Winner</button>
+
+                <!-- selecting the winne from the players-->
+
+                <div id="winner-selection" hidden>
+                    <label for="winner-player">Select Winner</label>
+
+                    <select id="winner-player">
+                        <option value="">Choose Player</option>
+                        <!-- javascript will add player from list-->
+                    </select>
+
+                    <!-- button to confrim winner-->
+                    <button type="button" id="confirm-winner">Confirm Winner</button>
+                    <!-- button to remove winner (may remove)-->
+                    <button type="button" id="cancel-winner">Cancel</button>
+
+                </div>
+             </section>
 
          </section>
+
+         <!-- results are shown-->
+        <section id="game-results" hidden>
+
+            <!-- winner is announced once winner is declared-->
+            <section id="winner-announcement">
+                <h2 id="winner-message">Player Win</h2>
+
+                <p>Amount Won: $<span id="winner-amount">0.00</span></p>
+            </section>
+
+            <!-- displays results of the win-->
+            <div class="results-content">
+                
+                <section id="results-players">
+                    <h3>Player Winnings</h3>
+
+                    <!-- table that shows the results-->
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Player</th>
+                                <th scope="col">Total Won</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="results-table-body">
+                            <!-- javascript will add results -->
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- game/round stats to be displayed (may be removed)-->
+                <section id="game-stats">
+                    <h3>Game Stats</h3>
+
+                    <p>Cards Played: <span id="results-cards-played">0</span></p>
+                    <p>Winning Card: <span id="winning-card">None</span></p>
+                    <p>Time Played: <span id="results-time">00:00</span></p>
+                </section>
+            </div>
+
+            <!-- choices for after results are diplayed-->
+            <section id="results-actions">
+                <h3>Play Again?</h3>
+
+                <button type="button" id="new-game">New Game</button>
+
+                <a href="index.html">Home</a>
+            </section>
+        </section>
+
      </main>
+
+     <footer>
+        <nav aria-label="footer-navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+     </footer>
     
 </body>
 </html>
