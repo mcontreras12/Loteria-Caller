@@ -65,15 +65,89 @@
 
                         <!-- automatic calling settings-->
                         <fieldset>
-                            
+
+                            <legend>Auto Call</legend>
+
+                            <label> <input type="radio" name="auto-calling-setting" value="on">On</label>
+
+                            <label><input type="radio" name="auto-calling-setting" value="off">Off</label>
+
                         </fieldset>
                     </section>
+
+                    <!-- voice and audio settings for the calling-->
+                     <section id="voice-settings">
+                        <h3>Voice/Audio</h3>
+
+                        <fieldset>
+                            <legend>Card Voice</legend>
+
+                            <!-- settings to turn the audio on or off-->
+                            <label><input type="radio" name="card-voice" value="on" checked>On</label>
+
+                            <label><input type="radio" name="card-voice" value="off">Off</label>
+
+                        </fieldset>
+                            <!-- volume settings-->
+                            <label for="voice-volume">Voice Volume</label>
+                            <input type="range" id="voice-volume" name="voice-volume" min="0" max="100" value="75">
+
+                     </section>
+
+                     <!-- language settings. hopefully this can work as i'd like to so that it can stay-->
+                    <section id="language-settings">
+                        <h3>Language</h3>
+
+                        <label for="settings-language">Select Language</label>
+
+                        <select name="language" id="settings-language">
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                        </select>
+
+                    </section>
+
+                    <!-- deck settings for user to select-->
+                    <section id="deck-settings">
+
+                        <h3>Deck Options</h3>
+
+                        <label for="deck-settings" name="deck-style"></label>
+
+                        <select name="deck-style" id="deck-settings">
+                            <option value="classic">Classic</option>
+                        </select>
+
+                        <fieldset>
+                            <legend>Display Card Numbers</legend>
+
+                            <label> <input type="radio" name="card-numbers" value="on" checked>On</label>
+
+                            <label><input type="radio" name="card-numbers" value="off">Off</label>
+
+                        </fieldset>
+                    </section>
+
+                    <!-- section in settings to save the selected settings-->
+                    <div class="settings-actions">
+                        <button type="submit" id="save-settings">Save Settings</button>
+                    </div>
+
                 </form>
             </div>
         </section>
 
     </main>
 
+    <!-- shared footer in all pages-->
+    <footer>
+        <nav aria-label="footer-navigation">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#help">Help</a></li>
+            </ul>
+     </footer>
 
 </body>
 </html>
