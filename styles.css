@@ -81,3 +81,74 @@ body {
     background-color: var(--white);
 }
 
+h1, h2 h3 {
+    font-family: var(--heading-font);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--green);
+}
+
+h1 {
+    font-size: var(--font-heading);
+}
+
+h2 {
+    font-size: var(--font-large);
+}
+
+h3 {
+    font-size: var(--font-medium);
+}
+
+a {
+    color: var(--green);
+}
+
+a:hover {
+    color: var(--red);
+}
+
+button {
+    cursor: pointer;
+}
+
+button, input, select, textarea {
+    font-family: var(--body-font);
+}
+
+/* css for accessibility */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* Main */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: var(--spacing-large);
+}
+
+/* Medium Screens (Min-width: 600px) */
+
+@media screen and (min-width: 600px) {
+    /* need add styles */
+}
+
+/* Large Screens (Min-width: 900px) */
+
+@media screen and (min-width: 900px) {
+    /* need add styles */
+}
+
+/* Extra Large Screens (Min-width: 1200px) */
+
+@media screen and (min-width: 1200px) {
+    /* need add styles */
+}
+
