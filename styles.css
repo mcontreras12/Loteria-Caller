@@ -1,0 +1,83 @@
+/* CSS By Mariluz Contreras */
+/* Mobile First Approach */
+
+/* Imported Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Ephesis&family=Kaushan+Script&family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Ephesis&family=Kaushan+Script&family=Pacifico&display=swap');
+
+/* CSS Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    min-width: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+nav ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Root Variables */
+
+:root {
+    --red: #CE1126;
+    --white: #FFFFFF;
+    --green: #006847;
+    --brown: #8B5E3C;
+    --gold: #D4A017;
+
+    --heading-font: 'Pacifico', cursive;
+    --body-font: 'Caveat', cursive;
+
+    /* for now, may or may not be changed later */
+    --font-small: 1.2rem;
+    --font-body: 1.5rem;
+    --font-medium: 1.75rem;
+    --font-large: 2.5rem;
+    --font-heading: 3rem;
+
+    /* also for now. may/may not change later */
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --spacing-xl: 3rem;
+
+    --border-radius: 8px;
+}
+
+/* Global Styles - Mobile First */
+
+body { 
+    font-family: var(--body-font);
+    font-size: var(--font-body);
+    line-height: 1.5;
+    color: var(--brown);
+    background-color: var(--white);
+}
+
