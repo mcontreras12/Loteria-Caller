@@ -221,6 +221,135 @@ footer nav a:hover, footer nav a:focus-visible {
     color: var(--gold);
 }
 
+/* Home Page */
+
+/* hero section */
+#hero {
+    padding: var(--spacing-xl);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-large);
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    width: 100%;
+}
+
+.hero-buttons a, .hero-buttons button {
+    width: 100%;
+}
+
+.hero-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 250px;
+    border: 2px dashed var(--brown);
+    border-radius: var(--border-radius);
+}
+
+/* game setup */
+#game-setup {
+    padding: var(--spacing-large) 0;
+}
+
+#game-setup h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.setup-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-large);
+}
+
+/* players and quick settings */
+#players-preview, #quick-settings {
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+}
+
+#players-preview h3, #quick-settings h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+/* Players */
+
+#home-player-list {
+    list-style: none;
+    margin-bottom: var(--spacing-medium);
+}
+
+#home-player-list li {
+    padding: var(--spacing-small);
+    border-bottom: 1px solid var(--brown);
+}
+
+/* add player link */
+
+#players-preview a {
+    display: inline-block;
+    padding: var(--spacing-small) var(--spacing-medium);
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: var(--border-radius);
+}
+
+#players-preview a:hover {
+    background-color: var(--red);
+}
+
+/* quick settings */
+
+#quick-settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+#quick-settings-form fieldset {
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-medium);
+}
+
+#quick-settings-form label {
+    display: block;
+}
+
+#quick-settings-form select {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+    color: var(--brown);
+}
+
+#quick-settings-form button {
+    margin-top: var(--spacing-medium);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Medium Screens (Min-width: 600px) */
 
