@@ -340,17 +340,6 @@ footer nav a:hover, footer nav a:focus-visible {
     margin-top: var(--spacing-medium);
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* Medium Screens (Min-width: 600px) */
 
 @media screen and (min-width: 600px) {
@@ -360,6 +349,30 @@ footer nav a:hover, footer nav a:focus-visible {
 
     header nav ul {
         gap: var(--spacing-large);
+    }
+
+    .hero-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hero-buttons {
+        width: 45%;
+    }
+
+    .hero-images {
+        width: 50%;
+    }
+
+    .setup-content {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    #players-preview, #quick-settings {
+        flex: 1;
+        min-width: 0;
     }
 }
 
@@ -377,11 +390,38 @@ footer nav a:hover, footer nav a:focus-visible {
     header h1 {
         margin-bottom: 0;
     }
+
+    .hero-content {
+        gap: 4rem;
+    }
+
+    .hero-buttons {
+        width: 40%;
+    }
+
+    .hero-images {
+        width: 55%;
+        min-height: 350px;
+    }
+
+    #game-setup {
+        padding: 3rem 0;
+    }
+
+    .setup-content {
+        gap: 3rem;
+    }
 }
 
 /* Extra Large Screens (Min-width: 1200px) */
 
 @media screen and (min-width: 1200px) {
-    /* need add styles */
+    .hero-images {
+        min-height: 400px;
+    }
+
+    #players-preview, #quick-settings {
+        padding: var(--spacing-xl);
+    }
 }
 
