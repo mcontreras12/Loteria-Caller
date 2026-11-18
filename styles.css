@@ -185,7 +185,7 @@ button, .hero-buttons a, #player-actions a, #results-actions a {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-button:hover, .hero-buttons a:hover, #results-actions a:hover {
+button:hover, .hero-buttons a:hover, #player-actions a:hover, #results-actions a:hover {
     background-color: var(--green);
     color: var(--white);
     transform: translateY(2px);
@@ -247,13 +247,48 @@ footer nav a:hover, footer nav a:focus-visible {
 }
 
 .hero-images {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-height: 250px;
-    border: 2px dashed var(--brown);
+    min-height: 300px;
+    padding: var(--spacing-medium);
+}
+
+.hero-card-one, .hero-card-two, .hero-card-three {
+    width: 30%;
+    max-width: 150px;
+    height: auto;
+    border: 3px solid var(--brown);
     border-radius: var(--border-radius);
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.hero-card-one {
+    transform: rotate(-15deg) translateX(20px);
+}
+
+.hero-card-two {
+    transform: translateY(-15px);
+    z-index: 2;
+}
+
+.hero-card-three {
+    transform: rotate(15deg) translateX(-20px);
+}
+
+.hero-card-one:hover {
+    transform: rotate(-10deg) translateY(-10px);
+}
+
+.hero-card-two:hover {
+    transform: translateY(-25px);
+}
+
+.hero-card-three:hover {
+    transform: rotate(10deg) translateY(-10px);
 }
 
 /* game setup */
@@ -340,6 +375,134 @@ footer nav a:hover, footer nav a:focus-visible {
     margin-top: var(--spacing-medium);
 }
 
+/* Players Page */
+
+/* header */
+#players-header {
+    text-align: center;
+    padding: var(--spacing-large) 0;
+}
+
+#players-header h2 {
+    margin-bottom: var(--spacing-small);
+}
+
+/* add player section */
+#add-player {
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-large);
+}
+
+#add-player h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+#add-player-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+#add-player-form label {
+    font-weight: 700;
+}
+
+#add-player-form input {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+/* players table */
+#players-section {
+    margin-bottom: var(--spacing-large);
+}
+
+#players-section h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+#players-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#players-table th {
+    background-color: var(--green);
+    color: var(--white);
+    padding: var(--spacing-medium);
+    text-align: left;
+}
+
+#players-table td {
+    padding: var(--spacing-medium);
+    border-bottom: 1px solid var(--brown);
+}
+
+#players-table tbody tr:nth-child(even) {
+    background-color: #F8F4EC;
+}
+
+/* contributions per round */
+#round-contributions {
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+#round-contributions h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+#contribution-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+}
+
+#contribution-form input {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+/* round pot for each game */
+/*#round-pot {
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-medium);
+    background-color: var(--gold);
+    color: #2B2B2B;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: 700;
+}*/
+
+/* player summary */
+#player-summary {
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-large);
+    border: 2px solid var(--gold);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+#player-summary h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+/* player actions */
+#player-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    margin-top: var(--spacing-large);
+    text-align: center;
+}
+
 /* Medium Screens (Min-width: 600px) */
 
 @media screen and (min-width: 600px) {
@@ -373,6 +536,33 @@ footer nav a:hover, footer nav a:focus-visible {
     #players-preview, #quick-settings {
         flex: 1;
         min-width: 0;
+    }
+
+    #add-player-form {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #add-player-form input {
+        flex: 1;
+        min-width: 180px;
+    }
+
+    #contribution-form {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    #contribution-form input {
+        flex: 1;
+        min-width: 180px;
+    }
+
+    #player-contribution {
+        flex-direction: row;
+        justify-content: center;
     }
 }
 
@@ -410,6 +600,18 @@ footer nav a:hover, footer nav a:focus-visible {
 
     .setup-content {
         gap: 3rem;
+    }
+
+    #players-header {
+        padding: var(--spacing-xl) 0;
+    }
+
+    #add-player, #round-contributions, #player-summary {
+        padding: var(--spacing-xl);
+    }
+
+    #players-table th, #players-table td {
+        padding: var(--spacing-medium) var(--spacing-large);
     }
 }
 
