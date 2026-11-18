@@ -503,6 +503,252 @@ footer nav a:hover, footer nav a:focus-visible {
     text-align: center;
 }
 
+/* Game Page */
+
+/* current active game */
+#active-game {
+    padding: var(--spacing-large) 0;
+}
+
+#active-game h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+/* layput for the game */
+.game-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-large);
+}
+
+/* current card displayed */
+#card-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+#current-card-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border: 3px solid var(--gold);
+    border-radius: var(--border-radius);
+    box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#current-card-name {
+    color: var(--green);
+    font-size: var(--font-large);
+    font-weight: 700;
+}
+
+/* caller controls */
+#caller-controls {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+#caller-controls h3 {
+    margin-bottom: var(--spacing-small);
+}
+
+#called-card-name {
+    color: var(--red);
+    font-weight: 700;
+}
+
+#caller-controls fieldset {
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-medium);
+}
+
+#caller-controls label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-small);
+    margin-right: var(--spacing-medium);
+}
+
+#caller-controls button {
+    width: 100%;
+}
+
+/* previous card played/called */
+#previous-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-small);
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+#previous-card img {
+    width: 100%;
+    max-width: 130px;
+    height: auto;
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+/* game information */
+#game-information {
+    padding: var(--spacing-large);
+    border: 2px solid var(--gold);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+#game-information h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+#game-information p {
+    margin-bottom: var(--spacing-small);
+}
+
+/* winner controls for declaring winner */
+#winner-controls {
+    padding: var(--spacing-large);
+    text-align: center;
+}
+
+#declare-winner {
+    background: var(--gold);
+    color: #2B2B2B;
+}
+
+#declare-winner:hover {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+#winner-selection {
+    margin-top: var(--spacing-large);
+    padding: var(--spacing-large);
+    border: 2px solid var(--gold);
+    border-radius: var(--border-radius);
+}
+
+#winner-selecttion select {
+    width: 100%;
+    padding: var(--spacing-small);
+    margin: var(--spacing-medium);
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+#confirm-winner, #cancel-winner {
+    margin: var(--spacing-small);
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* game results */
+#game-results {
+    padding: var(--spacing-large);
+    border: 3px solid var(--gold);
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-large);
+}
+
+#game-results h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+#winner-message {
+    text-align: center;
+    color: var(--green);
+    font-size: var(--font-large);
+    font-weight: 700;
+}
+
+#winner-amount {
+    color: var(--red);
+    font-weight: 700;
+}
+
+/* results */
+.results-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-large);
+    margin-top: var(--spacing-large);
+}
+
+#game-results table {
+    width: 100%;
+}
+
+#game-results th {
+    padding: var(--spacing-medium);
+    background-color: var(--green);
+    color: var(--white);
+    text-align: left;
+}
+
+#game-results td {
+    padding: var(--spacing-medium);
+    border-bottom: 1px solid var(--brown);
+}
+
+#results-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-medium);
+    margin-top: var(--spacing-large);
+    text-align: center;
+}
+
+/* Settings Page */
+
+/* settings */
+#settings-page {
+    padding: var(--spacing-large) 0;
+}
+
+#setting-page h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.settings-layput {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-large);
+    align-items: start;
+}
+
+#settings-sidebar {
+    padding: var(--spacing-medium);
+    background-color: var(--green);
+    border-radius: var(--border-radius);
+}
+
+#settings-sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-small);
+}
+
 /* Medium Screens (Min-width: 600px) */
 
 @media screen and (min-width: 600px) {
@@ -564,6 +810,24 @@ footer nav a:hover, footer nav a:focus-visible {
         flex-direction: row;
         justify-content: center;
     }
+
+    .game-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+    }
+
+    #card-display {
+        grid-row: span 2;
+    }
+
+    #caller-controls button {
+        width: auto;
+    }
+
+    #results-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
 }
 
 /* Large Screens (Min-width: 900px) */
@@ -613,6 +877,27 @@ footer nav a:hover, footer nav a:focus-visible {
     #players-table th, #players-table td {
         padding: var(--spacing-medium) var(--spacing-large);
     }
+
+    #active-game {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .game-content {
+        grid-template-columns: 1.2fr 1fr 0.7fr;
+        gap: var(--spacing-large);
+    }
+
+    #card-display {
+        grid-row: auto;
+    }
+
+    #current-card-image {
+        max-width: 320px;
+    }
+
+    .results-content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /* Extra Large Screens (Min-width: 1200px) */
@@ -624,6 +909,14 @@ footer nav a:hover, footer nav a:focus-visible {
 
     #players-preview, #quick-settings {
         padding: var(--spacing-xl);
+    }
+
+    .game-content {
+        gap: var(--spacing-xl);
+    }
+
+    #current-card-image {
+        max-width: 360px;
     }
 }
 
