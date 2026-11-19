@@ -58,6 +58,7 @@ function displayPlayers () {
     });
 
     updatePlayerSummary();
+    updateRoundPot();
 }
 
 /* adding players via the form */
@@ -117,5 +118,93 @@ function updatePlayerSummary() {
     }
 }
 
-/* initialing the players page */
-displayPlayers();
+
+
+/* Displaying players on Home page */
+
+/* constant for list of players on home page */
+const homePlayerList = document.querySelector("#home-player-list");
+
+/* display players on home page */
+function displayHomePlayers() {
+
+    if (!homePlayerList) {
+        return;
+    }
+
+    homePlayerList.innerHTML = "";
+
+    if (players.length === 0) {
+        const message = document.createElement("li");
+        message.textContent = "No players added yet.";
+        homePlayerList.appendChild(message);
+        return;
+    }
+
+    players.forEach(function(player) {
+        
+        const listItem = document.createElement("li");
+
+        listItem.textContent = player.name;
+
+        homePlayerList.appendChild(listItem);
+    });
+}
+
+/* initializing home player list */
+displayHomePlayers();
+
+/* Round Contributions */
+
+/* load the contribution */
+let contributionAmount = Number(
+    localStorage.getItem("loteriaContribution")
+) || 0;
+
+/* create constants for the round contributions */
+const contributionForm = document.querySelector("#contribution-form");
+const contributionInput = document.querySelector("#contribution-amount");
+const roundPot = document.querySelector("#round-pot");
+
+/* calculate the round pot */
+function updateRoundPot() {
+    if (!roundPot) {
+        return;
+    }
+
+    const totalPot = players.length * contributionAmount;
+
+    roundPot.textContent = "$" + totalPot.toFixed(2);
+}
+
+/* event listener for the contribution form */
+if (contributionForm) {
+    
+    contributionForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const amount = Number(contributionInput.value);
+
+        if (!Number.isFinite(amount) || amount <= 0) {
+            alert("Enter a valid contribution amount.");
+            return;
+        }
+
+        contributionAmount = amount;
+
+        localStorage.setItem(
+            "loteriaContribution", contributionAmount
+        );
+
+        updateRoundPot();
+    });
+}
+
+/* display the new round contribution and pot */
+if (contributionInput) {
+    contributionInput.value = contributionAmount || "";
+}
+
+updateRoundPot();
+
