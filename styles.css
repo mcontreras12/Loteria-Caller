@@ -749,6 +749,98 @@ footer nav a:hover, footer nav a:focus-visible {
     gap: var(--spacing-small);
 }
 
+#settings-sidebar a {
+    display: block;
+    padding: var(--spacing-small);
+    color: var(--white);
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+#settings-sidebar a:hover, #settings-sidebar a:focus-visible {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+#settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-large);
+    min-width: 0;
+}
+
+/* individual sections settings */
+#game-settings, #voice-settings, #language-settings, #deck-settings {
+    padding: var(--spacing-large);
+    border: 2px solid var(--brown);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    scroll-margin-top: 1rem;
+}
+
+#settings-from h3 {
+    margin-bottom: var(--spacing-medium);
+}
+
+/* fieldsets settings */
+#settings-form fieldset {
+    padding: var(--spacing-medium);
+    margin-bottom: var(--spacing-medium);
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+}
+
+#settings-form legend {
+    padding: 0 var(--spacing-small);
+    color: var(--green);
+    font-weight: 700;
+}
+
+/* radio buttons */
+#settings-form input [type="radio"] {
+    accent-color: var(--green);
+    margin-right: var(--spacing-small);
+}
+
+#settings-form fieldset label {
+    display: inline-flex;
+    align-items: center;
+    margin: var(--spacing-small) var(--spacing-medium) var(--spacing-small) 0;
+    cursor: pointer;
+}
+
+/* dropdown */
+#settings-form select {
+    display: block;
+    width: 100%;
+    padding: var(--spacing-small);
+    margin-top: var(--spacing-small);
+    border: 1px solid var(--brown);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    color: brown;
+}
+
+/* volumn slider */
+#settings-form input[type="range"] {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: var(--spacing-medium) 0;
+    accent-color: var(--green);
+}
+
+/* save settings */
+#save-settings {
+    width: 100%;
+    background-color: var(--red);
+    color: var(--white);
+}
+
+#save-settings:hover {
+    background-color: var(--green);
+}
+
 /* Medium Screens (Min-width: 600px) */
 
 @media screen and (min-width: 600px) {
@@ -828,6 +920,19 @@ footer nav a:hover, footer nav a:focus-visible {
         flex-direction: row;
         justify-content: center;
     }
+
+    #settings-sidebar ul {
+        gap: var(--spacing-medium);
+    }
+
+    #settings-form select {
+        max-width: 450px;
+    }
+
+    #save-settings {
+        width: auto;
+        align-self: flex-start;
+    }
 }
 
 /* Large Screens (Min-width: 900px) */
@@ -898,6 +1003,44 @@ footer nav a:hover, footer nav a:focus-visible {
     .results-content {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    #settings-page {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .settings-layout {
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: var(--spacing-xl);
+        align-items: start;
+    }
+
+    #settings-sidebar {
+        position: static;
+        width: 100%;
+        align-self: start;
+    }
+
+    #settings-sidebar ul {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-small);
+    }
+
+    #settings-sidebar a {
+        display: block;
+        padding: var(--spacing-medium);
+    }
+
+    #settings-form {
+        min-height: 0;
+        width: 100%;
+    }
+
+    #game-settings, #voice-settings, #language-settings, #deck-settings {
+        padding: var(--spacing-xl);
+    }
 }
 
 /* Extra Large Screens (Min-width: 1200px) */
@@ -917,6 +1060,11 @@ footer nav a:hover, footer nav a:focus-visible {
 
     #current-card-image {
         max-width: 360px;
+    }
+
+    .settings-layout {
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 4rem;
     }
 }
 
