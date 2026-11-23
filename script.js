@@ -208,3 +208,32 @@ if (contributionInput) {
 
 updateRoundPot();
 
+/* Card Caller */
+
+/* create the constants for the page */
+
+const currentCardImage = document.querySelector("#current-card");
+const previousCardImage = document.querySelector("#previous-card");
+
+const startGameButton = document.querySelector("#start-game");
+const nextCardButton = document.querySelector("next-card");
+const resetGameButton = document.querySelector("#reset-game");
+
+const cardsCalledDisplay = document.querySelector("#cards-called");
+
+/* game variables */
+let deck = [];
+let calledCards = [];
+let currentCard = null;
+let previousCard = null;
+
+/* function to create the deck */
+function createDeck() {
+    deck = [];
+    
+    for (let i = 1; i <= 54; i++) {
+        deck.push(i);
+    }
+}
+
+/* function to shuffle the deck */
