@@ -303,7 +303,7 @@ function getCardImage(cardNumber) {
 
 function getCardName(cardNumber) {
 
-    const name + cardNames[cardNumber -1];
+    const name = cardNames[cardNumber -1];
 
     return name.replaceAll("_", " ").replace(
         /\b\w/g,
