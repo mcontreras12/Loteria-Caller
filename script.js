@@ -237,3 +237,125 @@ function createDeck() {
 }
 
 /* function to shuffle the deck */
+function shuffleDeck() {
+    for (i = deck.length -1; i > 0; i--) {
+
+        const randomIndex = Math.floor(
+            Math.random() * (i + 1)
+        );
+
+        const temp = deck[i];
+        deck[i] = deck[randomIndex];
+        deck[randomIndex] = temp;
+    }
+}
+
+/* displays current card in game */
+function displayCurrentCard() {
+    if (!currentCardImage || currentCard === null) {
+        return;
+    }
+
+    currentCardImage.src = "images/cards/" + currentCard + ".jpg"
+
+    currentCardImage.alt = "Loteria Card " + currentCard;
+}
+
+/* display previous card in game */
+function displayPreviousCard() {
+
+    if (!previousCardImage || previousCard === null) {
+        return;
+    }
+
+    previousCardImage.src = "images/cards/" + previousCard + ".jpg";
+
+    previousCardImage.alt = "Previous Loteria Card " + previousCard;
+}
+
+/* function to call the next card */
+function callNextCard() {
+
+    if (deck.length === 0) {
+        alert("All cards have been called");
+        return;
+    }
+
+    previousCard = currentCard;
+
+    currentCard = deck.pop();
+
+    calledCards.push(currentCard);
+
+    displayCurrentCard();
+    displayPreviousCard();
+
+    if (cardsCalledDisplay) {
+        cardsCalledDisplay.textContent = calledCards.length;
+    }
+}
+
+/* function to start new game */
+function startGame () {
+
+    createDeck();
+    shuffleDeck();
+
+    calledCards = [];
+    currentCard = null;
+    previousCard = null;
+
+    if (cardsCalledDisplay) {
+        cardsCalledDisplay.textContent = "0";
+    }
+
+    callNextCard();
+}
+
+/* function to reset the game */
+function resetGame() {
+
+    deck = [];
+    calledCards = [];
+    currentCard = null;
+    previousCard = null;
+
+    if (currentCardImage) {
+        currentCardImage.removeAttribute("src");
+        currentCardImage.alt = "No card called";
+    }
+
+    if (previousCardImage) {
+        previousCard.removeAttribute("src");
+        previousCardImage.alt = "No previous card";
+    }
+
+    if (cardsCalledDisplay) {
+        cardsCalledDisplay.textContent = "0";
+    }
+}
+
+/* event listeners for game page */
+if (startGameButton) {
+
+    startGameButton.addEventListener("click", function() {
+        startGame();
+    });
+}
+
+if (nextCardButton) {
+
+    nextCardButton.addEventListener("click", function() {
+        if (calledCards.length === 0) {
+            return;
+        }
+
+        callNextCard;
+    });
+}
+
+if (resetGameButton) {
+    resetGameButton.addEventListener("click", function() {
+        resetGame();
+    });
+}
