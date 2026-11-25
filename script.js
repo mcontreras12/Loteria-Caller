@@ -268,7 +268,7 @@ const cardNames = [
     "el_camaron",
     "las_jaras",
     "el_musico",
-    "la_arana",
+    "la_araña",
     "el_soldado",
     "la_estrella",
     "el_cazo",
@@ -305,12 +305,10 @@ function getCardName(cardNumber) {
 
     const name = cardNames[cardNumber -1];
 
-    return name.replaceAll("_", " ").replace(
-        /\b\w/g,
-        function(letter) {
-            return letter.toUpperCase();
-        }
-    );
+    return name.split("_").map(function(word) {
+
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+    }).join(" ");
 }
 
 /* game variables */
@@ -358,6 +356,8 @@ function displayCurrentCard() {
 
     currentCardImage.alt = name;
 
+    currentCardImage.hidden = false;
+
     if (currentCardName) {
         currentCardName.textContent = name;
     }
@@ -380,11 +380,12 @@ function displayPreviousCard() {
 
     previousCardImage.alt = name;
 
+    previousCardImage.hidden = false;
+
     if (previousCardName) {
         previousCardName.textContent = name;
     }
 }
-
 /* function to call the next card */
 function callNextCard() {
 
@@ -429,28 +430,40 @@ function resetGame() {
     previousCard = null;
 
     if (currentCardImage) {
+       
+        currentCardImage.hidden = true;
+
         currentCardImage.removeAttribute("src");
+
         currentCardImage.alt = "No card called";
     }
 
     if (previousCardImage) {
+
+        previousCardImage.hidden = true;
+
         previousCardImage.removeAttribute("src");
+
         previousCardImage.alt = "No previous card";
     }
 
     if (currentCardName) {
+
         currentCardName.textContent = "Ready to Play";
     }
 
     if (previousCardName) {
+
         previousCardName.textContent = "None";
     }
 
     if (calledCardName) {
+
         calledCardName.textContent = "None";
     }
 
     if (cardsCalledDisplay) {
+
         cardsCalledDisplay.textContent = "0";
     }
 }
