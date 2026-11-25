@@ -1,5 +1,15 @@
 /* JavaScript by Mariluz Contreras */
 
+/* resetting when page is refreshed */
+const navigation = performance.getEntriesByType("navigation")[0];
+
+if (navigation && navigation.type === "reload") {
+    localStorage.removeItem("loteriaPlayers");
+    localStorage.removeItem("loteriaContribution");
+}
+
+/*Players Page */
+
 /* local storage for players to be added and saved */
 
 let players = JSON.parse (
@@ -119,7 +129,6 @@ function updatePlayerSummary() {
 }
 
 
-
 /* Displaying players on Home page */
 
 /* constant for list of players on home page */
@@ -212,14 +221,97 @@ updateRoundPot();
 
 /* create the constants for the page */
 
-const currentCardImage = document.querySelector("#current-card");
-const previousCardImage = document.querySelector("#previous-card");
+const currentCardImage = document.querySelector("#current-card-image");
+const previousCardImage = document.querySelector("#previous-card-image");
 
-const startGameButton = document.querySelector("#start-game");
-const nextCardButton = document.querySelector("next-card");
-const resetGameButton = document.querySelector("#reset-game");
+const currentCardName = document.querySelector("#current-card-name");
+const previousCardName = document.querySelector("#previous-card-name");
+const calledCardName = document.querySelector("#called-card-name");
+
+const nextCardButton = document.querySelector("#next-card");
+const newGameButton = document.querySelector("#new-game");
 
 const cardsCalledDisplay = document.querySelector("#cards-called");
+const gamePlayerCount = document.querySelector("#game-player-count");
+
+/* all loteria cards */
+const cardNames = [
+    "el_gallo",
+    "el_diablito",
+    "la_dama",
+    "el_catrin",
+    "el_paraguas",
+    "la_sirena",
+    "la_escalera",
+    "la_botella",
+    "el_barril",
+    "el_arbol",
+    "el_melon",
+    "el_valiente",
+    "el_gorrito",
+    "la_muerte",
+    "la_pera",
+    "la_bandera",
+    "el_bandolon",
+    "el_violoncello",
+    "la_garza",
+    "el_pajaro",
+    "la_mano",
+    "la_bota",
+    "la_luna",
+    "el_cotorro",
+    "el_borracho",
+    "el_negrito",
+    "el_corazon",
+    "la_sandia",
+    "el_tambor",
+    "el_camaron",
+    "las_jaras",
+    "el_musico",
+    "la_arana",
+    "el_soldado",
+    "la_estrella",
+    "el_cazo",
+    "el_mundo",
+    "el_apache",
+    "el_nopal",
+    "el_alacran",
+    "la_rosa",
+    "la_calavera",
+    "la_campana",
+    "el_cantarito",
+    "el_venado",
+    "el_sol",
+    "la_corona",
+    "la_chalupa",
+    "el_pino",
+    "el_pescado",
+    "la_palma",
+    "la_maceta",
+    "el_arpa",
+    "la_rana"
+];
+
+function getCardImage(cardNumber) {
+
+    const number = String(cardNumber).padStart(2, "0");
+
+    const name = cardNames[cardNumber - 1];
+
+    return "images/cards/" + number + "_" + name + ".jpg";
+}
+
+function getCardName(cardNumber) {
+
+    const name + cardNames[cardNumber -1];
+
+    return name.replaceAll("_", " ").replace(
+        /\b\w/g,
+        function(letter) {
+            return letter.toUpperCase();
+        }
+    );
+}
 
 /* game variables */
 let deck = [];
@@ -238,27 +330,41 @@ function createDeck() {
 
 /* function to shuffle the deck */
 function shuffleDeck() {
-    for (i = deck.length -1; i > 0; i--) {
+
+    for (let i = deck.length - 1; i > 0; i--) {
 
         const randomIndex = Math.floor(
             Math.random() * (i + 1)
         );
 
         const temp = deck[i];
+
         deck[i] = deck[randomIndex];
+
         deck[randomIndex] = temp;
     }
 }
 
 /* displays current card in game */
 function displayCurrentCard() {
+
     if (!currentCardImage || currentCard === null) {
         return;
     }
 
-    currentCardImage.src = "images/cards/" + currentCard + ".jpg"
+    const name = getCardName(currentCard);
 
-    currentCardImage.alt = "Loteria Card " + currentCard;
+    currentCardImage.src = getCardImage(currentCard);
+
+    currentCardImage.alt = name;
+
+    if (currentCardName) {
+        currentCardName.textContent = name;
+    }
+
+    if (calledCardName) {
+        calledCardName.textContent = name;
+    }
 }
 
 /* display previous card in game */
@@ -268,9 +374,15 @@ function displayPreviousCard() {
         return;
     }
 
-    previousCardImage.src = "images/cards/" + previousCard + ".jpg";
+    const name = getCardName(previousCard);
 
-    previousCardImage.alt = "Previous Loteria Card " + previousCard;
+    previousCardImage.src = getCardImage(previousCard);
+
+    previousCardImage.alt = name;
+
+    if (previousCardName) {
+        previousCardName.textContent = name;
+    }
 }
 
 /* function to call the next card */
@@ -296,18 +408,13 @@ function callNextCard() {
 }
 
 /* function to start new game */
-function startGame () {
+function startGame() {
+
+    resetGame();
 
     createDeck();
+
     shuffleDeck();
-
-    calledCards = [];
-    currentCard = null;
-    previousCard = null;
-
-    if (cardsCalledDisplay) {
-        cardsCalledDisplay.textContent = "0";
-    }
 
     callNextCard();
 }
@@ -317,6 +424,7 @@ function resetGame() {
 
     deck = [];
     calledCards = [];
+
     currentCard = null;
     previousCard = null;
 
@@ -326,8 +434,20 @@ function resetGame() {
     }
 
     if (previousCardImage) {
-        previousCard.removeAttribute("src");
+        previousCardImage.removeAttribute("src");
         previousCardImage.alt = "No previous card";
+    }
+
+    if (currentCardName) {
+        currentCardName.textContent = "Ready to Play";
+    }
+
+    if (previousCardName) {
+        previousCardName.textContent = "None";
+    }
+
+    if (calledCardName) {
+        calledCardName.textContent = "None";
     }
 
     if (cardsCalledDisplay) {
@@ -335,27 +455,38 @@ function resetGame() {
     }
 }
 
-/* event listeners for game page */
-if (startGameButton) {
-
-    startGameButton.addEventListener("click", function() {
-        startGame();
-    });
-}
-
+/* next card button */
 if (nextCardButton) {
 
     nextCardButton.addEventListener("click", function() {
+
         if (calledCards.length === 0) {
-            return;
+            startGame();
+        } else {
+            callNextCard();
         }
-
-        callNextCard;
     });
 }
 
-if (resetGameButton) {
-    resetGameButton.addEventListener("click", function() {
-        resetGame();
+/* new game button */
+if (newGameButton) {
+
+    newGameButton.addEventListener("click", function() {
+
+        startGame();
+
+        document.querySelector("#game-results").hidden = true;
+
+        document.querySelector("#active-game").hidden = false;
     });
 }
+
+/* display the number of players on game page */
+if (gamePlayerCount) {
+    gamePlayerCount.textContent = players.length;
+}
+
+/* initialize the pages */
+displayPlayers();
+displayHomePlayers();
+updateRoundPot();
