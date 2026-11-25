@@ -234,6 +234,15 @@ const newGameButton = document.querySelector("#new-game");
 const cardsCalledDisplay = document.querySelector("#cards-called");
 const gamePlayerCount = document.querySelector("#game-player-count");
 
+/* constants for automatic calling and speed controls */
+const autoCallOptions = document.querySelectorAll(
+    'input[name="auto-call"]'
+);
+
+const gameSpeedOptions = document.querySelectorAll(
+    'input[name="game-speed"]'
+);
+
 /* all loteria cards */
 const cardNames = [
     "el_gallo",
@@ -316,6 +325,11 @@ let deck = [];
 let calledCards = [];
 let currentCard = null;
 let previousCard = null;
+
+/* variables for automatic calling */
+let autoCallTimer = null;
+let autoCallEnabled = false;
+let callingSpeed = 5000;
 
 /* function to create the deck */
 function createDeck() {
@@ -408,6 +422,42 @@ function callNextCard() {
     }
 }
 
+/* function to start the automatic calling of the cards */
+function startAutoCall () {
+
+    stopAutoCall();
+
+    if (calledCards.length === 0) {
+        startGame();
+    }
+
+    if (deck.length === 0) {
+        return;
+    }
+
+    autoCallTimer = setInterval(function() {
+
+        if (deck.length === 0) {
+            stopAutoCall();
+            return;
+        }
+
+        callNextCard();
+
+        if (deck.length === 0) {
+            stopAutoCall();
+        }
+    }, callingSpeed);
+}
+
+/* function that stops the automatic calling of the cards */
+function stopAutoCall() {
+
+    clearInterval(autoCallTimer)
+
+        autoCallTimer = null;
+}
+
 /* function to start new game */
 function startGame() {
 
@@ -422,6 +472,8 @@ function startGame() {
 
 /* function to reset the game */
 function resetGame() {
+
+    stopAutoCall();
 
     deck = [];
     calledCards = [];
@@ -498,6 +550,42 @@ if (newGameButton) {
 if (gamePlayerCount) {
     gamePlayerCount.textContent = players.length;
 }
+
+/* event listeners for the automatic calling */
+autoCallOptions.forEach(function(option) {
+
+    option.addEventListener("change", function() {
+
+        autoCallEnabled = option.value === "on";
+
+        if (autoCallEnabled) {
+            startAutoCall();
+        } else {
+            stopAutoCall();
+        }
+    });
+}); 
+
+/* event listener for speed of calling cards */
+gameSpeedOptions.forEach(function(option) {
+
+    option.addEventListener("change", function() {
+
+        if (option.value === "slow") {
+
+            callingSpeed = 8000;
+        } else if (option.value === "medium") {
+
+            callingSpeed = 5000;
+        } else if (option.value === "fast") {
+            callingSpeed = 3000;
+        }
+
+        if (autoCallEnabled) {
+            startAutoCall();
+        }
+    });
+});
 
 /* initialize the pages */
 displayPlayers();
